@@ -1,2 +1,4 @@
 # fooleries
-testing anf playing
+testing and playing
+
+[Repetition](https://rydana.github.io/fooleries/repetition/)
