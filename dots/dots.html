@@ -1,0 +1,53 @@
+<! DOCTYPE htlm>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+body{
+	margin:0;
+	padding:0;
+}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.js"></script>
+</head>
+<body>
+</body>
+<script>
+const DOT_SPACING = 10;
+const DOT_SIZE = 10;
+const CANVAS_SIZE = 1000;
+const HSL_MAX_VALUE = 100;
+let time = 0;
+function setup() {
+ 	createCanvas(CANVAS_SIZE, CANVAS_SIZE);
+	colorMode(HSB, HSL_MAX_VALUE);
+}
+
+function draw() {
+	translate(CANVAS_SIZE/2, CANVAS_SIZE/2);
+ 	background(0);
+	let amplitude = 0.05;
+	let frequency = 4;
+	for(let x=0; x < CANVAS_SIZE/2; x+=DOT_SPACING + DOT_SIZE){
+		for(let y=0; y < CANVAS_SIZE/2; y+=DOT_SPACING + DOT_SIZE){
+			
+			let slowedTime = time/10;
+			//let xPrime = x + sin(slowedTime)*amplitude*sin(map(x, 0 , CANVAS_SIZE/2, 0,Math.PI)) ;
+			//let yPrime = y + sin(slowedTime)*amplitude*sin(map(y, 0 , CANVAS_SIZE/2, 0,Math.PI));
+
+			//let shift = (x+y)*amplitude*sin(sqrt(sq(x)+sq(y))+slowedTime);
+			let shift = amplitude*sin(slowedTime + frequency*sqrt(sq(map(x,0,CANVAS_SIZE/2,0,PI))+sq(map(y,0,CANVAS_SIZE/2,0,PI))));
+			let xPrime = x + x*shift ; 
+			let yPrime = y + y*shift ;
+			fill(map(shift,-amplitude ,amplitude ,HSL_MAX_VALUE/4,HSL_MAX_VALUE*0.75),50,HSL_MAX_VALUE);
+			ellipse(xPrime , yPrime , DOT_SIZE);
+			ellipse(-xPrime , yPrime , DOT_SIZE);
+			ellipse(xPrime , -yPrime , DOT_SIZE);
+			ellipse(-xPrime , -yPrime , DOT_SIZE);
+		}
+	}
+
+ 	time++;
+}
+</script>
+</html>
