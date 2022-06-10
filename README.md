@@ -5,3 +5,4 @@ testing and playing
 [Primes Spiral](https://rydana.github.io/fooleries/prime-spirals/)  
 [Drawings](https://rydana.github.io/fooleries/drawings/)  
 [Cylinder loop](https://rydana.github.io/fooleries/cylinder-loop/)  
+[Dots](https://rydana.github.io/fooleries/dots/)
